@@ -1,9 +1,10 @@
 # coding=utf-8
 import os, platform
+import logging
 
 VERSION = '1.5.0.dev'
 
-# use this envrionment to initialize the async & sync componment
+# use this environment to initialize the async & sync component
 ASYNC_COMPONENTS = os.environ.get('ITCHAT_UOS_ASYNC', False)
 
 BASE_URL = 'https://login.weixin.qq.com'
@@ -20,10 +21,17 @@ UOS_PATCH_EXTSPAM = 'Go8FCIkFEokFCggwMDAwMDAwMRAGGvAESySibk50w5Wb3uTl2c2h64jVVrV
 # if show self send mes
 SELF_MES = False
 
-PUSH_REGID = 'there input you phone id'
+# List of names to block from notifications
+BLOCK_NAME = ['block1', 'block2', 'block3']
 
-# 0 for mi , 1 for oppo 2 for huawei 4 for tencent 5 for bark
-PHONE_TYPE = '4'
-BLOCK_NAME = ['block1', '远方2', 'block3']
-# through message if you want reply mes just set it for 1
+# Whether to allow message replies (1 for yes, 0 for no)
 MES_THROUGH = 1
+
+# Logging level
+LOG_LEVEL = logging.DEBUG
+
+# DingTalk configurations
+DINGTALK_APP_KEY = ""
+DINGTALK_APP_SECRET = ""
+DINGTALK_ROBOT_CODE = ""
+DINGTALK_OPEN_CONVERSATION_ID = ""
