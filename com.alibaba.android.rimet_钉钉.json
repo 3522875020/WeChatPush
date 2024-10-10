@@ -1,0 +1,77 @@
+{
+  "version": "0.1.0",
+  "configs": {
+    "钉钉-自定义标题和内容解析": [
+      {
+        "name": "解析自定义标题和内容",
+        "metaInfo": {
+          "description": "自定义: \"title\" : \"(?<customTitle>[^\"]+)\"\\n\"content\" : \"(?<customContent>[\\s\\S]+)\""
+        },
+        "newMetaInfo": {
+          "title": "${customTitle}",
+          "description": "${customContent}"
+        },
+        "stop": false
+      }
+    ],
+    "钉钉-消息分类": [
+      {
+        "name": "即时沟通消息通知",
+        "metaInfo": {
+          "extra": {
+            "channel_id": "101344"
+          }
+        },
+        "newMetaInfo": {
+          "extra": {
+            "channel_name": "即时沟通消息通知",
+            "channel_description": "钉钉聊天内来自用户、机器人的消息提醒",
+            "channel_id": "101344"
+          }
+        },
+        "stop": false
+      }
+    ],
+    "钉钉-消息样式": [
+      "使用 Messaging Style",
+      "[Messaging Style] 消息添加标识"
+    ],
+    "钉钉-会话概念修复": [
+      {
+        "name": "会话概念修复",
+        "metaInfo": {
+          "extra": {
+            "intent_uri": "(?<id>\\d+)"
+          }
+        },
+        "newMetaInfo": {
+          "notifyId": "${id}"
+        },
+        "stop": false
+      }
+    ],
+    "com.alibaba.android.rimet": [
+      "钉钉-自定义标题和内容解析",
+      "钉钉-会话概念修复",
+      "钉钉-消息分类",
+      "钉钉-消息样式",
+      {
+        "name": "钉钉通知时点亮屏幕",
+        "metaInfo": {
+          "description": "有急事|收到请回复"
+        },
+        "operation": "wake",
+        "stop": false
+      },
+      {
+        "name": "添加通知组",
+        "newMetaInfo": {
+          "extra": {
+            "notification_group": "钉钉消息"
+          }
+        },
+        "stop": false
+      }
+    ]
+  }
+}
